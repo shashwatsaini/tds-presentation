@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Q2 Earnings — Interactive RevealJS</title>
+  
+  <!-- Reveal.js core CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
+  <!-- Theme (choose: beige, black, blood, league, moon, night, serif, simple, sky, solarized, white) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" id="theme" />
+  
+  <!-- Code syntax highlighting theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/monokai.css" />
+  
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" />
+  
+  <style>
+    /* A few tasteful tweaks for a modern look */
+    .reveal .slides section h1, .reveal .slides section h2 { letter-spacing: .3px; }
+    .reveal .brand { font-size: .8rem; opacity: .7; margin-top: 1rem; }
+    .reveal .kpi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .reveal .kpi .card { padding: 1rem; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+    .reveal .kpi .metric { font-size: 2rem; font-weight: 800; }
+    .reveal pre code { font-size: .9rem; line-height: 1.35; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title slide -->
+      <section>
+        <h1>Quarterly Earnings Report</h1>
+        <h3 class="fragment">Interactive Stakeholder Briefing</h3>
+        <p class="brand">
+          Prepared by: Technical Consultant · <strong>23f1000267@ds.study.iitm.ac.in</strong>
+        </p>
+        <aside class="notes">
+          Welcome stakeholders. This deck shows modern, interactive presentation features: fragments, Markdown, code highlighting, and typeset financial math. Use → to advance, ↓ for vertical stacks.
+        </aside>
+      </section>
+
+      <!-- KPIs with fragments (animated elements) -->
+      <section>
+        <h2>Highlights</h2>
+        <div class="kpi">
+          <div class="card fragment" data-fragment-index="1">
+            <div class="metric">₹ 2,450 Cr</div>
+            <div>Net Revenue (▲ 8% YoY)</div>
+          </div>
+          <div class="card fragment" data-fragment-index="2">
+            <div class="metric">19.6%</div>
+            <div>Operating Margin</div>
+          </div>
+          <div class="card fragment" data-fragment-index="3">
+            <div class="metric">₹ 15.2</div>
+            <div>EPS (Diluted)</div>
+          </div>
+        </div>
+        <aside class="notes">
+          Reveal each KPI with fragments. Pause on each to add color commentary.
+        </aside>
+      </section>
+
+      <!-- Markdown slide -->
+      <section data-markdown>
+        <script type="text/template">
+# Revenue Mix (Markdown)
+
+- **Retail Banking** — 46%
+- **Corporate & Treasury** — 38%
+- **Payments & Cards** — 16%
+
+> Market conditions remained supportive in Q2.
+
+**Contact:** 23f1000267@ds.study.iitm.ac.in
+        </script>
+        <aside class="notes">Demonstrate that this slide is written purely in Markdown via the plugin.</aside>
+      </section>
+
+      <!-- Code sample with syntax highlighting -->
+      <section>
+        <h2>Reproducible Metric Check (Code)</h2>
+        <pre><code class="language-python">import pandas as pd
+
+# Simple EPS reconciliation
+net_income = 2450e7   # ₹ in paise-like subordinate units for illustration
+shares_out = 1.61e9
+
+eps = net_income / shares_out
+print(f"EPS (calc): {eps:.2f}")
+        </code></pre>
+        <p class="fragment">Syntax highlighting provided by <em>highlight.js</em>.</p>
+        <aside class="notes">
+          Mention engineering rigor: we can validate reported EPS with lightweight notebooks or scripts.
+        </aside>
+      </section>
+
+      <!-- Math (financial formulas) -->
+      <section>
+        <h2>Valuation Snippets (Math)</h2>
+        <p>Net Present Value:</p>
+        <p>\[ \mathrm{NPV} = \sum_{t=1}^{T} \frac{CF_t}{(1+r)^t} - C_0 \]</p>
+        <p class="fragment">Dividend Discount (Gordon Growth):</p>
+        <p class="fragment">\[ P_0 = \frac{D_1}{r - g} \quad\text{with}\; r>g \]</p>
+        <aside class="notes">
+          Math is typeset with KaTeX via the Reveal Math plugin.
+        </aside>
+      </section>
+
+      <!-- Speaker Notes demo -->
+      <section>
+        <h2>Next Steps</h2>
+        <ul>
+          <li class="fragment">Publish deck on GitHub Pages</li>
+          <li class="fragment">Share link with stakeholders</li>
+          <li class="fragment">Automate updates via CI</li>
+        </ul>
+        <aside class="notes">
+          To open speaker view during the talk, press the 'S' key. This shows notes and timing.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js core and plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/math/math.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+
+  <script>
+    // Initialize Reveal
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ],
+      // Configure math with KaTeX
+      math: {
+        katex: 'https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js',
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false },
+          { left: '\\(', right: '\\)', display: false },
+          { left: '\\[', right: '\\]', display: true }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>
